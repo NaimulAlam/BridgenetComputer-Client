@@ -3,10 +3,10 @@
 This project was bootstrapped with [Live Website Link](https://link).
 
 ## Available Features
-> Bootstrap 
-> React 
-> MongoDB
-> React Router
-> Privet Routing
-> Google Login
-> Firebase Auth
+- [x] Bootstrap 
+- [x] React 
+- [x] MongoDB
+- [x] React Router
+- [x] Privet Routing
+- [x] Google Login
+- [x] Firebase Auth
