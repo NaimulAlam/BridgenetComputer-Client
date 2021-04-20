@@ -3,13 +3,13 @@ import AdminSidebar from "../Sidebar/AdminSidebar";
 import BookingsData from "./BookingsData";
 
 const AllBookings = () => {
-  const [manageOrders, setManageOrders] = useState([]);
+  const [manageBooking, setManageBooking] = useState([]);
 
   useEffect(() => {
     fetch("https://intense-fortress-10437.herokuapp.com/allBookings")
       .then((res) => res.json())
       .then((data) => {
-        setManageOrders(data);
+        setManageBooking(data);
       });
   }, []);
 
@@ -37,7 +37,7 @@ const AllBookings = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {manageOrders.map((bookings) => (
+                  {manageBooking.map((bookings) => (
                     <BookingsData
                       key={bookings._id}
                       bookings={bookings}

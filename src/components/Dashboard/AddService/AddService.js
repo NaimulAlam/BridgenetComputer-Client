@@ -6,7 +6,6 @@ const AddService = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
   const [imgUrl, setImgUrl] = useState({});
 

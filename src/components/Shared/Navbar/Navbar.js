@@ -1,10 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../App";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+  const [isAdmin, setIsAdmin] = useState({});
+
+  useEffect(() => {
+    fetch(
+      "https://intense-fortress-10437.herokuapp.com/isAdmin?email=" +
+        loggedInUser.email
+    )
+      .then((res) => res.json())
+      .then((data) => setIsAdmin(data));
+  }, [loggedInUser.email]);
 
   return (
     <div>
@@ -46,11 +57,13 @@ const Navbar = () => {
                 <span>Dashboard</span>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/admin" className="text-white nav-link px-3">
-                <span>Admin</span>
-              </Link>
-            </li>
+            {isAdmin.email && (
+              <li className="nav-item">
+                <Link to="/admin" className="text-white nav-link px-3">
+                  <span>Admin</span>
+                </Link>
+              </li>
+            )}
             <li className="nav-item">
               <a className="text-white nav-link px-3" href="#testimonial">
                 Testimonials

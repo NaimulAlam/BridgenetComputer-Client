@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../App";
 import AdminSidebar from "../Sidebar/AdminSidebar";
@@ -6,17 +6,14 @@ import AdminSidebar from "../Sidebar/AdminSidebar";
 const AddAdmin = () => {
   const [loggedInUser] = useContext(UserContext);
 
-  // const [isAdmin, setIsAdmin] = useState(false);
-
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     const adminData = {
-      Email: data.Email,
+      email: data.email,
       AdminIdentity: loggedInUser.name,
     };
 
@@ -53,12 +50,12 @@ const AddAdmin = () => {
                   <label htmlFor="validationTooltip01">Admin Email</label>
                   <input
                     required
-                    name="Email"
+                    name="email"
                     id="validationTooltip01"
                     className="form-control"
                     type="text"
                     placeholder="Email"
-                    {...register("Email", {
+                    {...register("email", {
                       required: true,
                       pattern: /^\S+@\S+$/i,
                     })}
