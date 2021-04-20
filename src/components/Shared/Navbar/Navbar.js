@@ -18,8 +18,6 @@ const Navbar = () => {
       .then((data) => setIsAdmin(data));
   }, [loggedInUser.email]);
 
-  console.log(isAdmin);
-
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light">
