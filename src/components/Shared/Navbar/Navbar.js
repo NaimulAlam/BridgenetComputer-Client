@@ -6,16 +6,19 @@ import "./Navbar.css";
 const Navbar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-  const [isAdmin, setIsAdmin] = useState({});
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch(
-      "https://intense-fortress-10437.herokuapp.com/isAdmin?email=" +
-        loggedInUser.email
-    )
+    fetch("https://intense-fortress-10437.herokuapp.com/isAdmin", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email: loggedInUser.email }),
+    })
       .then((res) => res.json())
       .then((data) => setIsAdmin(data));
   }, [loggedInUser.email]);
+
+  console.log(isAdmin);
 
   return (
     <div>
@@ -57,7 +60,7 @@ const Navbar = () => {
                 <span>Dashboard</span>
               </Link>
             </li>
-            {isAdmin.email && (
+            {isAdmin && (
               <li className="nav-item">
                 <Link to="/admin" className="text-white nav-link px-3">
                   <span>Admin</span>
