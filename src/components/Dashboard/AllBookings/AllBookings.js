@@ -29,11 +29,11 @@ const AllBookings = () => {
               <table className="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">Customer Name</th>
+                    <th className="text-primary" scope="col">Customer Name</th>
                     <th scope="col">Service</th>
-                    <th scope="col">Status</th>
+                    <th className="text-warning" scope="col">Status</th>
+                    <th scope="col">Update</th>
                     <th scope="col">Action</th>
-                    <th scope="col">Button</th>
                   </tr>
                 </thead>
                 <tbody>

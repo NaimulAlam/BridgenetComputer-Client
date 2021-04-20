@@ -28,20 +28,19 @@ const BookingsData = (props) => {
 
   return (
     <tr>
-      <td>{name}</td>
+      <td className="text-primary">{name}</td>
       <td>{servicename}</td>
-      <td>{status}</td>
+      <td className="text-warning">{status}</td>
       <td>
         <select
-          className="rounded-pill p-1 border-warning"
+          className="rounded-pill p-1 border-info"
           name="status"
           onChange={handleStatusChange}
         >
-          <option>{status}</option>
-          <option>Approved</option>
-          <option>On Going</option>
-          <option>Done</option>
-          <option>Canceled</option>
+          <option className="text-danger" >{status}</option>
+          <option className="text-danger" >pending</option>
+          <option className="text-warning">On Going</option>
+          <option className="text-success">Done</option>
         </select>
       </td>
 

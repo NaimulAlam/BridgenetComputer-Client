@@ -7,7 +7,6 @@ const Bookings = () => {
   const [loggedInUser] = useContext(UserContext);
   const [userOrders, setUserOrders] = useState([]);
 
-  //   const [totalPrice setTotalPrice] = useState()
   let total = 0;
   for (let i = 0; i < userOrders.length; i++) {
     const product = userOrders[i];
