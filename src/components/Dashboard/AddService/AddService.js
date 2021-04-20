@@ -56,7 +56,7 @@ const AddService = () => {
           <div className="col-sm-12 col-md-2">
             <AdminSidebar></AdminSidebar>
           </div>
-          <div className="col-sm-12 col-md-10">
+          <div className="col-sm-12 col-md-10"  style={{minHeight: "100vh" }}>
             <div className="col">
             <h3 className="text-primary p-4">Add Services </h3>
             </div>

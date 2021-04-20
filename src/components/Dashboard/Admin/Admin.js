@@ -8,7 +8,7 @@ const Admin = () => {
         <AdminSidebar></AdminSidebar>
       </div>
       <div className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center">
-        <div className="container-fluid">
+        <div className="container-fluid" style={{minHeight: "100vh" }}>
           <h3>Welcome to Admin Panel</h3>
         </div>
       </div>

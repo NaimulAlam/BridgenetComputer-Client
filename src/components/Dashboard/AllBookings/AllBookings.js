@@ -14,36 +14,41 @@ const AllBookings = () => {
   }, []);
 
   return (
-    <section className="container-fluid row">
-      <div className="col-md-2 col-sm-12">
-        <AdminSidebar></AdminSidebar>
-      </div>
-      <div className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center">
-        <div className="container-fluid">
-          <h3 className="text-primary p-3">All Bookings</h3>
-          <div className="table-responsive">
-            <table className="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Customer Name</th>
-                  <th scope="col">Service Name</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {manageOrders.map((bookings) => (
-                  <BookingsData
-                    key={bookings._id}
-                    bookings={bookings}
-                  ></BookingsData>
-                ))}
-              </tbody>
-            </table>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-2 col-sm-12">
+          <AdminSidebar></AdminSidebar>
+        </div>
+        <div
+          className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center"
+          style={{ minHeight: "100vh" }}
+        >
+          <div className="container-fluid">
+            <h3 className="text-primary p-3">All Bookings</h3>
+            <div className="table-responsive">
+              <table className="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Service Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {manageOrders.map((bookings) => (
+                    <BookingsData
+                      key={bookings._id}
+                      bookings={bookings}
+                    ></BookingsData>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
