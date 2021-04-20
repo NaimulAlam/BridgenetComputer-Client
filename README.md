@@ -1,6 +1,6 @@
 # A Complete Service Providing Website 
 
-This project was bootstrapped with [Live Website Link](https://link).
+This project was bootstrapped with [Live Website Link](https://bridgenet-computer.web.app/).
 
 ## Available Features
 - [x] Bootstrap 
@@ -9,4 +9,10 @@ This project was bootstrapped with [Live Website Link](https://link).
 - [x] React Router
 - [x] Privet Routing
 - [x] Google Login
-- [x] Firebase Auth
+- [x] User Dashboard
+- [x] Admin Dashboard
+- [x] Add Services
+- [x] Add Review
+- [x] Book Service
+- [x] Check Bookings
+- [x] stripePayment Test
