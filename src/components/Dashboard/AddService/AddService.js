@@ -3,10 +3,7 @@ import { useForm } from "react-hook-form";
 import AdminSidebar from "../Sidebar/AdminSidebar";
 
 const AddService = () => {
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const [imgUrl, setImgUrl] = useState({});
 
   const onSubmit = (data) => {
@@ -55,12 +52,12 @@ const AddService = () => {
           <div className="col-sm-12 col-md-2">
             <AdminSidebar></AdminSidebar>
           </div>
-          <div className="col-sm-12 col-md-10"  style={{minHeight: "100vh" }}>
+          <div className="col-sm-12 col-md-10" style={{ minHeight: "100vh" }}>
             <div className="col">
-            <h3 className="text-primary p-4">Add Services </h3>
+              <h3 className="text-primary p-4">Add Services </h3>
             </div>
             <div className="col">
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form className="m-3" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-row">
                   <div className="col-md-6 mb-3">
                     <label htmlFor="validationTooltip01">Service Name</label>
@@ -71,7 +68,10 @@ const AddService = () => {
                       required
                       servicename="servicename"
                       placeholder="Laptop Repair"
-                      {...register("servicename", { required: true, maxLength: 80 })}
+                      {...register("servicename", {
+                        required: true,
+                        maxLength: 80,
+                      })}
                     />
                     <div className="valid-tooltip">Looks good!</div>
                   </div>
@@ -108,9 +108,9 @@ const AddService = () => {
                   </div>
 
                   <div className="col-md-6 mb-3">
-                    <label htmlFor="validationTooltip01">Service Name</label>
+                    <label htmlFor="validationTooltip01">Upload image here</label>
                     <input
-                      className="form-control"
+                      className="form-control bg-light"
                       required
                       name="imgUrl"
                       type="file"
@@ -120,9 +120,14 @@ const AddService = () => {
                     <div className="valid-tooltip">Looks good!</div>
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="col-md-6 mb-3">
-                    <button type="submit">Save</button>
+                <div className="form-row justify-content-md-center">
+                  <div className="col  mb-3">
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      type="submit"
+                    >
+                      Save
+                    </button>
                   </div>
                 </div>
               </form>

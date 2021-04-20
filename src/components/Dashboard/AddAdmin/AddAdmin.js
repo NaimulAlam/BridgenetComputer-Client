@@ -1,4 +1,4 @@
-import React, { useContext, } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../App";
 import AdminSidebar from "../Sidebar/AdminSidebar";
@@ -6,10 +6,7 @@ import AdminSidebar from "../Sidebar/AdminSidebar";
 const AddAdmin = () => {
   const [loggedInUser] = useContext(UserContext);
 
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     const adminData = {
@@ -39,14 +36,14 @@ const AddAdmin = () => {
         <div className="col-md-2 col-sm-12">
           <AdminSidebar></AdminSidebar>
         </div>
-        <div className="col-sm-12 col-md-10">
-          <div className="col">
-            <h3 className="text-primary p-3">Add An Admin</h3>
+        <div className="col-md-10 col-sm-12 my-5 pb-5 col-md-10">
+          <div className="container-fluid">
+            <h3 className="text-primary">Add An Admin</h3>
           </div>
-          <div className="col">
+          <div className="container-fluid">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-row">
-                <div className="col-md-6 mb-3">
+                <div className="col mb-3">
                   <label htmlFor="validationTooltip01">Admin Email</label>
                   <input
                     required
@@ -64,7 +61,7 @@ const AddAdmin = () => {
                 </div>
               </div>
               <div className="form-row">
-                <div className="col-md-6 mb-3">
+                <div className="col mb-3">
                   <button className="btn btn-primary" type="submit">
                     Save
                   </button>

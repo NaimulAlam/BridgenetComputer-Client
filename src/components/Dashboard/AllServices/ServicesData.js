@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
 const ServicesData = (props) => {
-
   const { _id, servicename, price } = props.item;
 
   const [status, setStatus] = useState(null);
@@ -29,8 +28,8 @@ const ServicesData = (props) => {
     <tr style={status}>
       <td>{servicename}</td>
       <td>{price}</td>
-      <td className="deleteButton">
-        <button onClick={() => deleteProduct(_id)}>
+      <td>
+        <button className="btn btn-danger" onClick={() => deleteProduct(_id)}>
           <FontAwesomeIcon icon={faTrash} />
         </button>
       </td>

@@ -13,7 +13,7 @@ const AllServices = () => {
       });
   }, []);
   return (
-    <div className="container-fluid">
+    <section className="container-fluid">
       <div className="row">
         <div className="col-md-2 col-sm-12">
           <AdminSidebar></AdminSidebar>
@@ -43,7 +43,7 @@ const AllServices = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
