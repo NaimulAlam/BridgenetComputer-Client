@@ -1,20 +1,23 @@
-import React from 'react';
-import Footer from '../../Shared/Footer/Footer';
-import HeaderMain from '../HeaderMain/HeaderMain';
-import Services from '../Services/Services';
-import './Home.css';
+import React from "react";
+import Footer from "../../Shared/Footer/Footer";
+import AboutUs from "../About/AboutUs";
+import HeaderMain from "../HeaderMain/HeaderMain";
+import Services from "../Services/Services";
+import Testimonial from "../Testimonial/Testimonial";
+import "./Home.css";
+import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 
 const Home = () => {
-    return (
-        <div className="home">
-          <HeaderMain></HeaderMain>
-          <Services></Services>
-          <h1>Another Option-3</h1>
-          <h1>Dynamic Testimonials-4</h1>
-          <h1>Extra Bonus Add an admin programminghero001@gmail.com Section-6</h1>
-          <Footer></Footer>
-        </div>
-    );
+  return (
+    <div className="home">
+      <HeaderMain></HeaderMain>
+      <Services></Services>
+      <AboutUs></AboutUs>
+      <WhyChooseUs></WhyChooseUs>
+      <Testimonial></Testimonial>
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default Home;

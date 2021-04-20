@@ -5,9 +5,9 @@ import coverImg from "../../../images/Repair1.jpg";
 
 const HeaderMain = () => {
   return (
-    <div className="header-main">
+    <div className="header-main pb-5">
       <Navbar></Navbar>
-      <div className="row m-md-5 m-sm-2 p-5">
+      <div className="row p-5">
         <div className="col-sm-12 col-md-6 text-left">
           <h1>
             <span>Professional</span> <br />
@@ -20,7 +20,7 @@ const HeaderMain = () => {
             computer repair and diagnostics
           </h4>
           <div className="pt-5 text-center">
-            <img src={coverImg} alt="" />
+            <img className="coverImage" src={coverImg} alt="" />
           </div>
         </div>
       </div>

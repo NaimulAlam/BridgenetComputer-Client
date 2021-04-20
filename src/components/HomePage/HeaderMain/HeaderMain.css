@@ -15,12 +15,12 @@ h1 span {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.header-main img{
+.coverImage{
     height: 200px;
     border-radius: 20px;
     transition: 1s ease-in-out;
 }
-.header-main img:hover{
+.coverImage:hover{
     transform: scale(1.2);
     transition-timing-function: ease-in-out;
 }

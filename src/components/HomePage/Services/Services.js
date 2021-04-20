@@ -1,24 +1,27 @@
-import React from "react";
-import pc from "../../../images/pc.png";
+import React, { useEffect, useState } from "react";
 import ServiceDetail from "../ServiceDetail/ServiceDetail";
 
 const Services = () => {
-  const serviceData = [
-    { name: "PC & MAC Computers", description: "lorem10", logo: pc, key: 101 },
-    { name: "Laptop Macbook Repair", description: "lorem10", logo: pc, key: 102 },
-    { name: "Smartphone Repair", description: "lorem10", logo: pc, key: 103 },
-    { name: "iPAD - Tablet Repair", description: "lorem10", logo: pc, key: 104 },
-  ];
+
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/services")
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, []);
+
+  
   return (
-    <section className="services-container mt-5">
+    <section id="services" className="container-fluid pt-5 bg-light">
       <div className="text-center">
-        <h2>Get Your Repair Started</h2>
-        <h5 style={{ color: "#1CC7C1" }}>Services We Provide</h5>
+        <h2 className="mb-4" style={{ color: "#1CC7C1" }}>Services We Provide</h2>
+        <h4>Get Your Repair Started</h4>
       </div>
       <div className="d-flex justify-content-center">
-        <div className="w-75 row mt-5 pt-5">
-          {serviceData.map((service) => (
-            <ServiceDetail service={service} key={service.key}></ServiceDetail>
+        <div className="w-75 my-5 pt-5 row row-cols-1 row-cols-md-3">
+          {services.map((service) => (
+            <ServiceDetail service={service} key={service._id}></ServiceDetail>
           ))}
         </div>
       </div>

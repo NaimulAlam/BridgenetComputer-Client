@@ -1,15 +1,32 @@
 import React from "react";
+import { useHistory } from "react-router";
+import "./ServiceDetail.css";
 
-const ServiceDetail = ({ service }) => {
+const ServiceDetail = (props) => {
+
+  const { _id, servicename, description, price, imgUrl } = props.service;
+
+  const history = useHistory();
+
+  const handleClick = () => {
+    const url = `/serviceBooking/${_id}`;
+    history.push(url);
+  };
+
   return (
-    <div className="col-md-3 text-center">
-      <div className="shadow p-3 mb-5 bg-white rounded">
-        <img style={{ height: "70px" }} src={service.logo} alt="" />
-        <h5 className="mt-3 mb-3">{service.name}</h5>
-        <p className="text-secondary">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
-          quaerat?
-        </p>
+    <div className="col mb-4 ">
+      <div className="card h-100 zoom">
+        <img className="CardImg card-img-top rounded mx-auto d-block" src={imgUrl} alt="" />
+        <div className="card-body">
+          <h5 className="card-title text-danger">{servicename}</h5>
+          <p className="card-text">{description}</p>
+        </div>
+        <div className="card-footer">
+          <p>Starting from ${price}</p>
+          <p onClick={() => handleClick(_id)} className="btn btn-primary">
+            Go somewhere
+          </p>
+        </div>
       </div>
     </div>
   );

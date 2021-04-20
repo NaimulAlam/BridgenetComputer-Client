@@ -1,0 +1,22 @@
+.sidebarBg{
+    height: auto;
+}
+.sidebarBg li{
+    margin-bottom: 2em;
+}
+.sidebarBg li:hover span{
+    display: inline-block;
+    transform: translate(5px);
+}
+.sidebarBg svg{
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .sidebarBg{
+        height: auto;
+    }
+    .sidebarBg li{
+        margin-bottom: 1vh;
+    }
+  }
