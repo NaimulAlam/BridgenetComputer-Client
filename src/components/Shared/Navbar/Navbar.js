@@ -60,7 +60,7 @@ const Navbar = () => {
             </li>
             {isAdmin && (
               <li className="nav-item">
-                <Link to="/admin" className="text-white nav-link px-3">
+                <Link to="/admin" className="text-danger nav-link px-3">
                   <span>Admin</span>
                 </Link>
               </li>
