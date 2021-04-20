@@ -1,23 +1,23 @@
-.sidebarBg {
+.adminPage {
   height: 100%;
   min-height: 100vh;
 }
-.sidebarBg li {
+.adminPage li {
   margin-bottom: 2em;
 }
-.sidebarBg li:hover span {
+.adminPage li:hover span {
   display: inline-block;
   transform: translate(5px);
 }
-.sidebarBg svg {
+.adminPage svg {
   margin-right: 5px;
 }
 
 @media screen and (max-width: 600px) {
-  .sidebarBg {
+  .adminPage {
     height: auto;
   }
-  .sidebarBg li {
+  .adminPage li {
     margin-bottom: 1vh;
   }
 }

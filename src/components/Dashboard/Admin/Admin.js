@@ -16,7 +16,7 @@ const Admin = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   return (
-    <section className="container-fluid pt-5 bg-info  sidebarBg">
+    <section className="container-fluid pt-5 bg-info  adminPage">
       <div className="container-fluid p-3">
         <h3 className="text-light">Welcome to Admin Panel</h3>
         <h4 className="text-dark ">{loggedInUser.name}</h4>
