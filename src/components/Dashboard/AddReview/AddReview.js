@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import AdminSidebar from "../Sidebar/AdminSidebar";
 import Sidebar from "../Sidebar/Sidebar";
 
 const AddReview = () => {

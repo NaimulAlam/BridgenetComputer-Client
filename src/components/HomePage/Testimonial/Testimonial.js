@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TestimonialDetails from "../TestimonialDetails/TestimonialDetails";
 
-const testimonialData = [
-  { name: "Mr. Alam", title: "Ceo of XYZ", image: "pc", key: 101, comment: "A well-known quote, contained in a blockquote element." },
-  { name: "Mr. Naim", title: "Manager of YZX", image: "macbook", key: 102, comment: "A well-known quote, contained in a blockquote element." },
-  { name: "Mr. Leo", title: "Freelancer", image: "smartphone", key: 103, comment: "A well-known quote, contained in a blockquote element." },
-  { name: "Mr. Leo", title: "Freelancer", image: "smartphone", key: 103, comment: "A well-known quote, contained in a blockquote element." },
-  { name: "Ms. Nisa", title: "IT Support Specialist", image: "tab", key: 104, comment: "A well-known quote, contained in a blockquote element. a little longer comments" },
-];
-
 const Testimonial = () => {
-
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -19,9 +10,12 @@ const Testimonial = () => {
       .then((data) => setReviews(data));
   }, []);
 
-  
   return (
-    <section className="container-fluid my-5 " id="testimonial" style={{ minHeight: "100vh" }}>
+    <section
+      className="container-fluid my-5 "
+      id="testimonial"
+      style={{ minHeight: "100vh" }}
+    >
       <div className="row">
         <div className="col-12 my-5">
           <h4 className="text-danger mb-4">REAL TESTIMONIALS</h4>
