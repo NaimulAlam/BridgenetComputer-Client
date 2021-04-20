@@ -16,10 +16,10 @@ const Book = () => {
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, [id]);
-  const [bookingData, setBookingData] = useState(null)
+  const [bookingData, setBookingData] = useState(null);
   const onSubmit = (data) => {
-    setBookingData(data)
-  }
+    setBookingData(data);
+  };
   const handlePaymentSuccess = (paymentId, paymentMethod) => {
     const newBooking = {
       ...loggedInUser,
@@ -27,7 +27,7 @@ const Book = () => {
       orderTime: new Date(),
       paymentId,
       paymentMethod,
-      status:'pending'
+      status: "pending",
     };
     fetch("https://intense-fortress-10437.herokuapp.com/addBooking", {
       method: "POST",
@@ -45,14 +45,18 @@ const Book = () => {
   };
 
   return (
-      <section className="container-fluid row">
+    <div className="container-fluid">
+      <div className="row">
         <div className="col-md-2 col-sm-12">
           <Sidebar></Sidebar>
         </div>
-        <div className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center">
+        <div className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center bookDiv">
           <div className="container-fluid">
             <div className="row">
-              <div style={{ display: bookingData ? 'none' : 'block' }} className="col container-fluid">
+              <div
+                style={{ display: bookingData ? "none" : "block" }}
+                className="col container-fluid"
+              >
                 <div className="container-fluid table-responsive-sm mt-5">
                   <div className="mx-5">
                     <h4 className="mb-3">Checkout</h4>
@@ -66,11 +70,11 @@ const Book = () => {
                       <tbody>
                         <tr>
                           <td>{item.servicename}</td>
-                          <td>{item.price}</td>
+                          <td>${item.price}</td>
                         </tr>
                         <tr>
                           <td>Total</td>
-                          <td>{item.price}</td>
+                          <td>${item.price}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -85,14 +89,20 @@ const Book = () => {
                   </div>
                 </div>
               </div>
-              <div style={{ display: bookingData ? 'block' : 'none', }} className="col p-5 m-5 text-center rounded bg-light ">
-                    <h5 className="m-4">Give the Card Info to Pay </h5>
-                    <StripePayment handlePayment={handlePaymentSuccess}> </StripePayment>
-                </div>
+              <div
+                style={{ display: bookingData ? "block" : "none" }}
+                className="col p-5 m-5 text-center rounded bg-light "
+              >
+                <h5 className="m-4">Give the Card Info to Pay </h5>
+                <StripePayment handlePayment={handlePaymentSuccess}>
+                  {" "}
+                </StripePayment>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
   );
 };
 

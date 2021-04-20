@@ -14,7 +14,7 @@ const Sidebar = () => {
   const [setLoggedInUser] = useContext(UserContext);
 
   return (
-    <section className="container-fluid bg-info sidebarBg">
+    <section className="container-fluid bg-info pt-5 sidebarBg">
       <div className="row">
         <div className="col-sm-12">
           <ul className="list-unstyled mt-3">

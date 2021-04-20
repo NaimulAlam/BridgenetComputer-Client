@@ -44,7 +44,7 @@ const AddAdmin = () => {
         </div>
         <div className="col-sm-12 col-md-10">
           <div className="col">
-            <h3 className="text-primary p-3">Add Review</h3>
+            <h3 className="text-primary p-3">Add An Admin</h3>
           </div>
           <div className="col">
             <form onSubmit={handleSubmit(onSubmit)}>

@@ -1,6 +1,6 @@
 .sidebarBg {
   height: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 .sidebarBg li {
   margin-bottom: 2em;
@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 600px) {
   .sidebarBg {
-    height: 40vh;
+    height: auto;
   }
   .sidebarBg li {
     margin-bottom: 1vh;
