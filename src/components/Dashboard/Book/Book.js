@@ -12,7 +12,7 @@ const Book = () => {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/services/" + id)
+    fetch("https://intense-fortress-10437.herokuapp.com/services/" + id)
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, [id]);
@@ -23,7 +23,7 @@ const Book = () => {
       newBooking: item,
       orderTime: new Date(),
     };
-    fetch("http://localhost:5000/addBooking", {
+    fetch("https://intense-fortress-10437.herokuapp.com/addBooking", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const BookingsData = (props) => {
     const [status, setStatus] = useState(null);
   
     function deleteProduct() {
-      fetch(`http://localhost:5000/deleteBookings/${_id}`, {
+      fetch(`https://intense-fortress-10437.herokuapp.com/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

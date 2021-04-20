@@ -18,7 +18,7 @@ const AddReview = () => {
       imgUrl: imgUrl,
     };
 
-    const url = `http://localhost:5000/addReview`;
+    const url = `https://intense-fortress-10437.herokuapp.com/addReview`;
     fetch(url, {
       method: "POST",
       headers: {

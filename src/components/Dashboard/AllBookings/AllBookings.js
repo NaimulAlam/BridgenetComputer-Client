@@ -6,7 +6,7 @@ const AllBookings = () => {
   const [manageOrders, setManageOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allBookings")
+    fetch("https://intense-fortress-10437.herokuapp.com/allBookings")
       .then((res) => res.json())
       .then((data) => {
         setManageOrders(data);

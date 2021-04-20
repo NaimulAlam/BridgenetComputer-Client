@@ -18,7 +18,7 @@ const AddService = () => {
       imgUrl: imgUrl,
     };
 
-    const url = `http://localhost:5000/addService`;
+    const url = `https://intense-fortress-10437.herokuapp.com/addService`;
     fetch(url, {
       method: "POST",
       headers: {

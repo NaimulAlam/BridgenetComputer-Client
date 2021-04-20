@@ -9,7 +9,7 @@ const ServicesData = (props) => {
   const [status, setStatus] = useState(null);
 
   function deleteProduct() {
-    fetch(`http://localhost:5000/delete/${_id}`, {
+    fetch(`https://intense-fortress-10437.herokuapp.com/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
