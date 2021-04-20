@@ -13,7 +13,7 @@ import {
 import { UserContext } from "../../../App";
 
 const AdminSidebar = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [setLoggedInUser] = useContext(UserContext);
 
   return (
     <section className="container-fluid bg-info sidebarBg" >

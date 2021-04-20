@@ -5,16 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSignOutAlt,
   faHSquare,
-  faUserPlus,
   faTasks,
-  faClipboardList,
   faPlusSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../../../App";
 
 const Sidebar = () => {
-  
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [setLoggedInUser] = useContext(UserContext);
 
   return (
     <section className="container-fluid bg-info sidebarBg">
@@ -42,7 +39,7 @@ const Sidebar = () => {
             <li className="mt-md-5 pt-md-5">
               <Link to="/login" className="text-white">
                 <FontAwesomeIcon icon={faSignOutAlt} />
-                <span onClick={() => setLoggedInUser({})} >Logout</span>
+                <span onClick={() => setLoggedInUser({})}>Logout</span>
               </Link>
             </li>
           </ul>

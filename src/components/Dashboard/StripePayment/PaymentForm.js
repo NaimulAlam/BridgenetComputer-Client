@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
-const PaymentForm = () => {
+const PaymentForm = ({handlePayment}) => {
   const [paymentSuccess, setPaymentSuccess] = useState(null);
   const [paymentError, setPaymentError] = useState(null);
 
@@ -22,10 +22,12 @@ const PaymentForm = () => {
       setPaymentError(error.message);
       setPaymentSuccess(null)
     } else {
-      setPaymentSuccess(paymentMethod.id);
+      setPaymentSuccess(paymentMethod)
+      handlePayment(paymentMethod.id,paymentMethod.type);
       setPaymentError(null)
     }
   };
+
 
   return (
     <div>
@@ -39,7 +41,7 @@ const PaymentForm = () => {
           paymentError && <p className="text-danger">{paymentError}</p>
       }
       {
-          paymentSuccess && <p className="text-success">"Thank you! Your Payment Successfully Done. "</p>
+          paymentSuccess && <p className="text-success p-3">"Thank you! Your Payment Successfully Done. "</p>
       }
     </div>
   );

@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../../../App";
 import Sidebar from "../Sidebar/Sidebar";
 
 const AddReview = () => {
+  const [loggedInUser] = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [imgUrl, setImgUrl] = useState({});
 
   const onSubmit = (data) => {
     const serviceData = {
       name: data.name,
       title: data.title,
       review: data.description,
-      imgUrl: imgUrl,
+      imgUrl: loggedInUser.photo,
     };
 
     const url = `https://intense-fortress-10437.herokuapp.com/addReview`;
@@ -34,21 +36,6 @@ const AddReview = () => {
       });
   };
 
-  const handleImageUpload = (event) => {
-    const imgData = new FormData();
-    imgData.set("key", "b7d1f7ea94e0d0890ce2429fdf90f279");
-    imgData.append("image", event.target.files[0]);
-
-    fetch("https://api.imgbb.com/1/upload", {
-      method: "POST",
-      body: imgData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setImgUrl(data.data.display_url);
-      });
-  };
-
   return (
     <div>
       <div className="container-fluid">
@@ -58,7 +45,7 @@ const AddReview = () => {
           </div>
           <div className="col-sm-12 col-md-10">
             <div className="col">
-            <h3 className="text-primary p-3">Add Review</h3>
+              <h3 className="text-primary p-3">Add Review</h3>
             </div>
             <div className="col">
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -84,6 +71,7 @@ const AddReview = () => {
                   <div className="col-md-6 mb-3">
                     <label htmlFor="validationTooltip01">Your Name</label>
                     <input
+                      defaultValue={loggedInUser.name}
                       type="text"
                       className="form-control"
                       id="validationTooltip01"
@@ -112,21 +100,9 @@ const AddReview = () => {
                 </div>
                 <div className="form-row">
                   <div className="col-md-6 mb-3">
-                    <label htmlFor="validationTooltip01">Your Picture</label>
-                    <input
-                      className="form-control"
-                      required
-                      name="imgUrl"
-                      type="file"
-                      onChange={handleImageUpload}
-                      {...register}
-                    />
-                    <div className="valid-tooltip">Looks good!</div>
-                  </div>
-                </div>
-                <div className="form-row">
-                  <div className="col-md-6 mb-3">
-                    <button className="btn btn-primary" type="submit">Save</button>
+                    <button className="btn btn-primary" type="submit">
+                      Save
+                    </button>
                   </div>
                 </div>
               </form>

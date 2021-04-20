@@ -1,5 +1,4 @@
 import React from "react";
-import img from "../../../images/pc.png";
 
 const TestimonialDetails = ( props ) => {
   

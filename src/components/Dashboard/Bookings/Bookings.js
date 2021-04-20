@@ -69,7 +69,7 @@ const Bookings = () => {
                             )}
                           </td>
                           <td>${order.newBooking.price}</td>
-                          <td>Pending</td>
+                          <td>{order.status}</td>
                         </tr>
                       ))}
                     <tr>

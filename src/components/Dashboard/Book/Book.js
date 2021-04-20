@@ -16,12 +16,18 @@ const Book = () => {
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, [id]);
-
-  const handleCheckout = () => {
+  const [bookingData, setBookingData] = useState(null)
+  const onSubmit = (data) => {
+    setBookingData(data)
+  }
+  const handlePaymentSuccess = (paymentId, paymentMethod) => {
     const newBooking = {
       ...loggedInUser,
       newBooking: item,
       orderTime: new Date(),
+      paymentId,
+      paymentMethod,
+      status:'pending'
     };
     fetch("https://intense-fortress-10437.herokuapp.com/addBooking", {
       method: "POST",
@@ -46,11 +52,10 @@ const Book = () => {
         <div className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-md-6 col-sm-12 container-fluid">
+              <div style={{ display: bookingData ? 'none' : 'block' }} className="col container-fluid">
                 <div className="container-fluid table-responsive-sm mt-5">
                   <div className="mx-5">
                     <h4 className="mb-3">Checkout</h4>
-                    {/* <p>id:{item._id}</p> */}
                     <table className=" table table-striped">
                       <thead>
                         <tr>
@@ -60,7 +65,7 @@ const Book = () => {
                       </thead>
                       <tbody>
                         <tr>
-                          <td>{item.name}</td>
+                          <td>{item.servicename}</td>
                           <td>{item.price}</td>
                         </tr>
                         <tr>
@@ -71,7 +76,7 @@ const Book = () => {
                     </table>
                     <button
                       className="btn btn-primary"
-                      onClick={handleCheckout}
+                      onClick={onSubmit}
                       style={{ position: "absolute", right: "70px" }}
                       type="submit"
                     >
@@ -80,10 +85,10 @@ const Book = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-sm-12 container-fluid my-5 py-5 px-4">
-                <h2>Pay Here</h2>
-                <StripePayment></StripePayment>
-              </div>
+              <div style={{ display: bookingData ? 'block' : 'none', }} className="col p-5 m-5 text-center rounded bg-light ">
+                    <h5 className="m-4">Give the Card Info to Pay </h5>
+                    <StripePayment handlePayment={handlePaymentSuccess}> </StripePayment>
+                </div>
             </div>
           </div>
         </div>
