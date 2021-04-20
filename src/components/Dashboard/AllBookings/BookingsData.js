@@ -30,6 +30,7 @@ const BookingsData = (props) => {
       <tr style={status}>
         <td>{name}</td>
         <td>{servicename}</td>
+        <td>Pending</td>
         <td className="deleteButton">
           <button onClick={() => deleteProduct(_id)}>
             <FontAwesomeIcon icon={faTrash} />

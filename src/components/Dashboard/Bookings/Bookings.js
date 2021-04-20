@@ -15,7 +15,10 @@ const Bookings = () => {
   }
 
   useEffect(() => {
-    fetch("https://intense-fortress-10437.herokuapp.com/bookings?email=" + loggedInUser.email)
+    fetch(
+      "https://intense-fortress-10437.herokuapp.com/bookings?email=" +
+        loggedInUser.email
+    )
       .then((res) => res.json())
       .then((data) => {
         setUserOrders(data);
@@ -44,38 +47,33 @@ const Bookings = () => {
             </p>
           </div>
           {userOrders.length > 0 ? (
-            <div className="container my-5">
+            <div className="table-responsive my-5">
               <table className="table table-hover">
                 <thead>
                   <tr style={{ backgroundColor: "#03fcf8" }}>
-                    <th scope="col">Image</th>
                     <th scope="col">Service Name</th>
                     <th scope="col">Date</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {userOrders &&
                     userOrders.map((order) => (
                       <tr key={order._id}>
-                        <td>
-                          <img
-                            style={{ height: "80px" }}
-                            src={order.newBooking.imgUrl}
-                            alt="ordered laptop"
-                          ></img>
-                        </td>
-                        <td>{order.newBooking.name}</td>
+                        <td>{order.newBooking.servicename}</td>
                         <td>
                           {new Date(order.orderTime).toDateString("dd/MM/yyyy")}
                         </td>
                         <td>${order.newBooking.price}</td>
+                        <td>Pending</td>
                       </tr>
                     ))}
                   <tr>
-                    <td colSpan="2"></td>
+                    <td></td>
                     <td>Total Amount</td>
-                    <td colSpan="2">${total}</td>
+                    <td>${total}</td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>

@@ -19,21 +19,23 @@ const AllServices = () => {
       </div>
       <div className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center">
         <div className="container-fluid">
-          <h3 className="text-primary p-3" >All Services</h3>
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              {manageServices.map((laptop) => (
-                <ServicesData key={laptop._id} item={laptop}></ServicesData>
-              ))}
-            </tbody>
-          </table>
+          <h3 className="text-primary p-3">All Services</h3>
+          <div className="table-responsive">
+            <table className="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                {manageServices.map((laptop) => (
+                  <ServicesData key={laptop._id} item={laptop}></ServicesData>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
