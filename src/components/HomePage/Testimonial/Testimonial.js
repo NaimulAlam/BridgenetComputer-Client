@@ -26,7 +26,7 @@ const Testimonial = () => {
             {reviews.map((details) => (
               <TestimonialDetails
                 details={details}
-                key={details.key}
+                key={details._id}
               ></TestimonialDetails>
             ))}
           </div>

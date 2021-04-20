@@ -9,9 +9,9 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light">
-        <a className="navbar-brand" href="home">
+        <Link to="/" className="navbar-brand">
           Bridgenet Computer
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -40,9 +40,6 @@ const Navbar = () => {
               <a className="text-white nav-link px-3" href="#services">
                 Services
               </a>
-              {/* <Link to="/services" className="text-white nav-link px-3">
-                <span> Services </span>
-              </Link> */}
             </li>
             <li className="nav-item">
               <Link to="/dashboard" className="text-white nav-link px-3">

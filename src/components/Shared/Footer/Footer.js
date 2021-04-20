@@ -31,7 +31,7 @@ const Footer = () => {
               is dedicated to the customer growth.
             </h5>
             <h3 className="text-info mt-5 pt-5">
-              With love from <span className="text-danger">Bridgenet</span>
+              With love from <a href="#home" className="text-danger text-decoration-none">Bridgenet</a>
             </h3>
           </div>
           <div className="col-12 text-white">

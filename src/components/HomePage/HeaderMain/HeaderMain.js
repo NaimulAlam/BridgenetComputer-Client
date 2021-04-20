@@ -5,7 +5,7 @@ import coverImg from "../../../images/Repair1.jpg";
 
 const HeaderMain = () => {
   return (
-    <div className="header-main pb-5">
+    <div className="header-main pb-5" id="home">
       <Navbar></Navbar>
       <div className="row p-5" style={{marginRight:"0px"}}>
         <div className="col-sm-12 col-md-6 text-left">
