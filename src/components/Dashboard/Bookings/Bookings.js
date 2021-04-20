@@ -29,18 +29,18 @@ const Bookings = () => {
       </div>
       <div className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center">
         <div className="container">
+          <h3 className="text-primary p-3">Bookings Summery</h3>
           <div className="container-fluid">
-            <h2> Welcome! {loggedInUser.name} to your Order Summery</h2>
-            <h4>There {userOrders.length} orders you have made</h4>
+            <h4> Welcome! {loggedInUser.name} to your Bookings Summery</h4>
+            <h4>
+              You Have{" "}
+              <span className="text-danger"> {userOrders.length} </span>{" "}
+              Bookings
+            </h4>
             <p>
               Please ensure this is you email:{" "}
-              <span style={{ color: "blue" }}>{loggedInUser.email}</span> to
+              <span className="text-warning">{loggedInUser.email}</span> to
               receive your order confirmation
-            </p>
-            <p>
-              <small>
-                **All the products includes tax and shipment within this country
-              </small>
             </p>
           </div>
           {userOrders.length > 0 ? (

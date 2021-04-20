@@ -58,7 +58,7 @@ const AddService = () => {
           </div>
           <div className="col-sm-12 col-md-10">
             <div className="col">
-              <h1>This is place for adding Services</h1>
+            <h3 className="text-primary p-4">Add Services </h3>
             </div>
             <div className="col">
               <form onSubmit={handleSubmit(onSubmit)}>

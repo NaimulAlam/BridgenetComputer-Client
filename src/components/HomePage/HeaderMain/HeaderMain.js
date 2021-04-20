@@ -7,7 +7,7 @@ const HeaderMain = () => {
   return (
     <div className="header-main pb-5">
       <Navbar></Navbar>
-      <div className="row p-5">
+      <div className="row p-5" style={{marginRight:"0px"}}>
         <div className="col-sm-12 col-md-6 text-left">
           <h1>
             <span>Professional</span> <br />

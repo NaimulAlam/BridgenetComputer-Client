@@ -20,22 +20,24 @@ const AllBookings = () => {
       </div>
       <div className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center">
         <div className="container-fluid">
-          <div className="container-fluid">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Customer Name</th>
-                  <th scope="col">Service Name</th>
-                  <th scope="col">status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {manageOrders.map((bookings) => (
-                  <BookingsData key={bookings._id} bookings={bookings}></BookingsData>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <h3 className="text-primary p-3">All Bookings</h3>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Service Name</th>
+                <th scope="col">status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {manageOrders.map((bookings) => (
+                <BookingsData
+                  key={bookings._id}
+                  bookings={bookings}
+                ></BookingsData>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

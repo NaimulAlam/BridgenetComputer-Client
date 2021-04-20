@@ -13,7 +13,7 @@ const Services = () => {
 
   
   return (
-    <section id="services" className="container-fluid pt-5 bg-light">
+    <section id="services" className="container-fluid pt-5 bg-light" style={{ minHeight: "100vh" }}>
       <div className="text-center">
         <h2 className="mb-4" style={{ color: "#1CC7C1" }}>Services We Provide</h2>
         <h4>Get Your Repair Started</h4>

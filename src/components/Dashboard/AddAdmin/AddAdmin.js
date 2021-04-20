@@ -9,6 +9,7 @@ const AddAdmin = () => {
       </div>
       <div className="col-md-10 col-sm-12 mt-3 pt-3 d-flex justify-content-center">
         <div className="container-fluid">
+          <h3 className="text-primary p-3">Add Admin</h3>
           <h4>Add Admin Here</h4>
         </div>
       </div>

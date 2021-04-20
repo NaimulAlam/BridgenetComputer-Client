@@ -21,7 +21,7 @@ const Testimonial = () => {
 
   
   return (
-    <div className="container-fluid my-5 " id="testimonial">
+    <section className="container-fluid my-5 " id="testimonial" style={{ minHeight: "100vh" }}>
       <div className="row">
         <div className="col-12 my-5">
           <h4 className="text-danger mb-4">REAL TESTIMONIALS</h4>
@@ -38,7 +38,7 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

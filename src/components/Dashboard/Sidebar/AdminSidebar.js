@@ -16,7 +16,7 @@ const AdminSidebar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   return (
-    <section className="container-fluid bg-info sidebarBg">
+    <section className="container-fluid bg-info sidebarBg" >
       <div className="row">
         <div className="col-sm-12">
           <ul className="list-unstyled mt-3">
