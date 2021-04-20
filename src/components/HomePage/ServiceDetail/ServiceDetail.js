@@ -24,7 +24,7 @@ const ServiceDetail = (props) => {
         <div className="card-footer">
           <p>Starting from ${price}</p>
           <p onClick={() => handleClick(_id)} className="btn btn-primary">
-            Go somewhere
+            Book Now
           </p>
         </div>
       </div>
