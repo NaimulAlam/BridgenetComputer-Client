@@ -13,8 +13,8 @@ const AboutUs = () => {
         </div>
         <div className="col-12 my-5">
           <div className="row">
-            <div className="col-md-6 col-sm-12 my-5">
-              <img style={{ height: "60vh" }} src={aboutCover} alt="" />
+            <div className="col-md-6 col-sm-12 my-4">
+              <img style={{ height: "60vh", width: "100%" }} src={aboutCover} alt="" />
             </div>
             <div className="col-md-6 col-sm-12 text-left">
               <h4 className="mb-3 text-success">
