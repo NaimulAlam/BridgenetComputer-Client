@@ -1,40 +1,89 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../../../App";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { initializeLogin, handleGoogleSignIn } from "./LoginManager.js";
 import "./Login.css";
 import googleIcon from "../../../images/google.png";
+import firebase from "firebase/app";
+import "firebase/auth";
+import Swal from "sweetalert2";
+import firebaseConfig from "../FirebaseConfig/FirebaseConfig";
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+} else {
+  firebase.app();
+}
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-  const [user, setUser] = useState({
-    isSignedIn: false,
-    name: "",
-    email: "",
-    photo: "",
-  });
-
   const history = useHistory();
   const location = useLocation();
-
   let { from } = location.state || { from: { pathname: "/" } };
 
-  initializeLogin();
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-  const googleSignIn = () => {
-    handleGoogleSignIn().then((res) => {
-      handleResponse(res, true);
-    });
+  const authToken = () => {
+    firebase
+      .auth()
+      .currentUser.getIdToken(true)
+      .then(function (idToken) {
+        sessionStorage.setItem("token", idToken);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
-  const handleResponse = (res, redirect) => {
-    setUser(res);
-    setLoggedInUser(res);
-    if (redirect) {
-      history.replace(from);
-    }
+  const handleGoogleSignIn = () => {
+    firebase
+      .auth()
+      .signInWithPopup(googleProvider)
+      .then((result) => {
+        if (result.user.displayName) {
+          Swal.fire("success!", "You have successfully logged In", "success");
+
+          const { displayName, email, photoURL } = result.user;
+          const signedInUser = {
+            ...loggedInUser,
+            name: displayName,
+            email: email,
+            photo: photoURL,
+          };
+          setLoggedInUser(signedInUser);
+          history.replace(from);
+          authToken();
+        }
+      })
+      .catch((error) => {
+        Swal.fire(
+          "Error!",
+          "something went wrong, please try again later",
+          "error"
+        );
+        const errorMessage = error.message;
+        console.log("err", errorMessage);
+      });
+  };
+
+  const handleClick = () => {
+    (async () => {
+      const { value: accept } = await Swal.fire({
+        title: "Terms and conditions",
+        input: "checkbox",
+        inputValue: 1,
+        inputPlaceholder: "I agree with the terms and conditions",
+        confirmButtonText:
+          'Continue&nbsp;<i  className="fa fa-arrow-right"></i>',
+        inputValidator: (result) => {
+          return !result && "You need to agree with T&C";
+        },
+      });
+      if (accept) {
+        handleGoogleSignIn();
+      }
+    })();
   };
 
   return (
@@ -46,15 +95,15 @@ const Login = () => {
               <h2>Bridgenet Computer</h2>
             </Link>
           </div>
-          {loggedInUser.length && (
+          {loggedInUser?.length && (
             <div className="card-header">
               {loggedInUser.name}
               <br />
-              {user.email}
+              {loggedInUser.email}
             </div>
           )}
           <button
-            onClick={googleSignIn}
+            onClick={handleClick}
             className="btn btn-outline-primary my-4"
           >
             <img className="iconClass" src={googleIcon} alt="icon" />

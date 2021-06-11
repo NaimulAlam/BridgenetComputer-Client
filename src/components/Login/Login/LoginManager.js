@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import Swal from "sweetalert2";
 import firebaseConfig from "../FirebaseConfig/FirebaseConfig";
 
 export const initializeLogin = () => {
@@ -14,23 +15,32 @@ export const handleGoogleSignIn = () => {
     .auth()
     .signInWithPopup(googleProvider)
     .then((result) => {
-      const { displayName, email, photoURL } = result.user;
-      const signedInUser = {
-        isSignedIn: true,
-        success: true,
-        name: displayName,
-        email: email,
-        photo: photoURL,
-      };
-      return signedInUser;
+      if (result.user.displayName) {
+        Swal.fire(
+          "success!", 
+          "You have successfully logged In", 
+          "success"
+          );
+          
+        const { displayName, email, photoURL } = result.user;
+        const signedInUser = {
+          isSignedIn: true,
+          success: true,
+          name: displayName,
+          email: email,
+          photo: photoURL,
+        };
+        return signedInUser;
+      }
     })
     .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      var email = error.email;
-      var credential = error.credential;
-
-      console.log(errorCode, errorMessage, email, credential);
+      Swal.fire(
+        "Error!",
+        "something went wrong, please try again later",
+        "error"
+      );
+      const errorMessage = error.message;
+      console.log(errorMessage);
     });
 };
 

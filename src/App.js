@@ -13,11 +13,26 @@ import AddAdmin from "./components/Dashboard/AddAdmin/AddAdmin";
 import AddReview from "./components/Dashboard/AddReview/AddReview";
 import Bookings from "./components/Dashboard/Bookings/Bookings";
 import NotFound from "./components/Shared/NotFound/NotFound";
+import jwt_decode from "jwt-decode";
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+
+  const token = sessionStorage.getItem("token");
+
+  if (!loggedInUser?.email && token) {
+    var decoded = jwt_decode(token);
+    const info = { ...loggedInUser };
+    info.name = decoded.name;
+    info.email = decoded.email;
+    info.photo = decoded.picture;
+    if (decoded.email) {
+      setLoggedInUser(info);
+    }
+  }
+
   return (
     <div className="App">
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>

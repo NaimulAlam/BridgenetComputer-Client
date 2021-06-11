@@ -2,12 +2,34 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../App";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [show, setShow] = useState(false);
 
+  const handleClick = () => {
+    setShow(!show);
+
+    Swal.fire({
+      title: "Logout",
+      text: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((res)=>{
+      if(res.isConfirmed){
+        sessionStorage.setItem("token", "");
+        setLoggedInUser("");
+        Swal.fire("Logged Out!", "Successfully Logged Out", "success");
+      }
+    })
+  }
+
+  const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
     fetch("https://intense-fortress-10437.herokuapp.com/isAdmin", {
       method: "POST",
@@ -79,7 +101,7 @@ const Navbar = () => {
                   Login
                 </Link>
               ) : (
-                <Link onClick={() => setLoggedInUser({})} to="/">
+                <Link onClick={handleClick} to="/">
                   <div className="logoContainer px-3">
                     <img
                       src={loggedInUser.photo}
