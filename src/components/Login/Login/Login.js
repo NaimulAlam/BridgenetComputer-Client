@@ -95,11 +95,11 @@ const Login = () => {
               <h2>Bridgenet Computer</h2>
             </Link>
           </div>
-          {loggedInUser?.length && (
+          {loggedInUser.email && (
             <div className="card-header">
-              {loggedInUser.name}
-              <br />
-              {loggedInUser.email}
+              <h5>Current User Information</h5>
+              <p>Name: {loggedInUser.name} </p>
+              <p>Email: {loggedInUser.email} </p>
             </div>
           )}
           <button
