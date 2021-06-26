@@ -75,7 +75,7 @@ const AdminSidebar = () => {
             </li>
 
             <li className="mt-md-5 pt-md-5">
-              <Link to="/login" className="text-white">
+              <Link to="/home" className="text-white">
                 <FontAwesomeIcon icon={faSignOutAlt} />
                 <span onClick={handleClick}>Logout</span>
               </Link>

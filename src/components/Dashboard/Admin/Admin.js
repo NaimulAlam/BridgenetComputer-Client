@@ -7,13 +7,36 @@ import {
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { UserContext } from "../../../App";
 import "./Admin.css";
 
 const Admin = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+  const [show, setShow] = useState(false);
+
+  const handleClick = () => {
+    setShow(!show);
+
+    Swal.fire({
+      title: "Logout",
+      text: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((res)=>{
+      if(res.isConfirmed){
+        sessionStorage.setItem("token", "");
+        setLoggedInUser("");
+        Swal.fire("Logged Out!", "Successfully Logged Out", "success");
+      }
+    })
+  }
 
   return (
     <section className="container-fluid pt-5 bg-info  adminPage">
@@ -56,9 +79,9 @@ const Admin = () => {
             </li>
 
             <li className="m-2">
-              <Link to="/login" className="text-white">
+              <Link to="/home" className="text-white">
                 <FontAwesomeIcon icon={faSignOutAlt} />
-                <span onClick={() => setLoggedInUser({})}>Logout</span>
+                <span onClick={handleClick}>Logout</span>
               </Link>
             </li>
           </ul>
