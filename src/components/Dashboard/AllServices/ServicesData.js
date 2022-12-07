@@ -8,7 +8,7 @@ const ServicesData = (props) => {
   const [status, setStatus] = useState(null);
 
   function deleteProduct() {
-    fetch(`https://intense-fortress-10437.herokuapp.com/delete/${_id}`, {
+    fetch(`https://bridgenet-server-api.onrender.com/delete/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

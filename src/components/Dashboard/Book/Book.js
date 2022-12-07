@@ -12,7 +12,7 @@ const Book = () => {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    fetch("https://intense-fortress-10437.herokuapp.com/services/" + id)
+    fetch("https://bridgenet-server-api.onrender.com/services/" + id)
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, [id]);
@@ -29,7 +29,7 @@ const Book = () => {
       paymentMethod,
       status: "pending",
     };
-    fetch("https://intense-fortress-10437.herokuapp.com/addBooking", {
+    fetch("https://bridgenet-server-api.onrender.com/addBooking", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -5,7 +5,7 @@ const Testimonial = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("https://intense-fortress-10437.herokuapp.com/reviews")
+    fetch("https://bridgenet-server-api.onrender.com/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

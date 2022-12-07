@@ -6,7 +6,7 @@ const Services = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("https://intense-fortress-10437.herokuapp.com/services")
+    fetch("https://bridgenet-server-api.onrender.com/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

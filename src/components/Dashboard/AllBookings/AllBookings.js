@@ -6,7 +6,7 @@ const AllBookings = () => {
   const [manageBooking, setManageBooking] = useState([]);
 
   useEffect(() => {
-    fetch("https://intense-fortress-10437.herokuapp.com/allBookings")
+    fetch("https://bridgenet-server-api.onrender.com/allBookings")
       .then((res) => res.json())
       .then((data) => {
         setManageBooking(data);

@@ -14,7 +14,7 @@ const AddService = () => {
       imgUrl: imgUrl,
     };
 
-    const url = `https://intense-fortress-10437.herokuapp.com/addService`;
+    const url = `https://bridgenet-server-api.onrender.com/addService`;
     fetch(url, {
       method: "POST",
       headers: {

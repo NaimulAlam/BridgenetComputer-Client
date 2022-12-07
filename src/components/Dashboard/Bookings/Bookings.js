@@ -15,7 +15,7 @@ const Bookings = () => {
 
   useEffect(() => {
     fetch(
-      "https://intense-fortress-10437.herokuapp.com/bookings?email=" +
+      "https://bridgenet-server-api.onrender.com/bookings?email=" +
         loggedInUser.email
     )
       .then((res) => res.json())

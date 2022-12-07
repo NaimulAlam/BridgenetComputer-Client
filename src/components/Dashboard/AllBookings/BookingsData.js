@@ -15,7 +15,7 @@ const BookingsData = (props) => {
   };
 
   const updateStatus = (id) => {
-    fetch(`https://intense-fortress-10437.herokuapp.com/updateBooking/${id}`, {
+    fetch(`https://bridgenet-server-api.onrender.com/updateBooking/${id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(statusUpdate),

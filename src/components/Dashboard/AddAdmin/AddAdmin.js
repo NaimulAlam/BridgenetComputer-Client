@@ -14,7 +14,7 @@ const AddAdmin = () => {
       AdminIdentity: loggedInUser.name,
     };
 
-    const url = `https://intense-fortress-10437.herokuapp.com/addAdmin`;
+    const url = `https://bridgenet-server-api.onrender.com/addAdmin`;
     fetch(url, {
       method: "POST",
       headers: {

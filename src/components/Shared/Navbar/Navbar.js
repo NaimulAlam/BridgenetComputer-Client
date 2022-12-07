@@ -31,7 +31,7 @@ const Navbar = () => {
 
   const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
-    fetch("https://intense-fortress-10437.herokuapp.com/isAdmin", {
+    fetch("https://bridgenet-server-api.onrender.com/isAdmin", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email: loggedInUser.email }),

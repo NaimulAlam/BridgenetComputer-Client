@@ -19,7 +19,7 @@ const AddReview = () => {
       imgUrl: loggedInUser.photo,
     };
 
-    const url = `https://intense-fortress-10437.herokuapp.com/addReview`;
+    const url = `https://bridgenet-server-api.onrender.com/addReview`;
     fetch(url, {
       method: "POST",
       headers: {
