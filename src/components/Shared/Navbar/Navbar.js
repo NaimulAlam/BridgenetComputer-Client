@@ -61,22 +61,22 @@ const Navbar = () => {
         <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
           <ul className="navbar-nav mx-auto mt-2 mt-lg-0">
             <li className="nav-item active">
-              <Link to="/" className="text-white nav-link px-3">
+              <Link to="/" className=" nav-link px-3">
                 <span> Home </span>
               </Link>
             </li>
             <li className="nav-item">
-              <a className="text-white nav-link px-3" href="#about">
+              <a className=" nav-link px-3" href="#about">
                 About Us
               </a>
             </li>
             <li className="nav-item">
-              <a className="text-white nav-link px-3" href="#services">
+              <a className=" nav-link px-3" href="#services">
                 Services
               </a>
             </li>
             <li className="nav-item">
-              <Link to="/dashboard" className="text-white nav-link px-3">
+              <Link to="/dashboard" className=" nav-link px-3">
                 <span>Dashboard</span>
               </Link>
             </li>
@@ -88,14 +88,14 @@ const Navbar = () => {
               </li>
             )}
             <li className="nav-item">
-              <a className="text-white nav-link px-3" href="#testimonial">
+              <a className=" nav-link px-3" href="#testimonial">
                 Testimonials
               </a>
             </li>
             <li>
               {!loggedInUser.email ? (
                 <Link
-                  className="linkStyle text-white nav-link px-3"
+                  className="linkStyle  nav-link px-3"
                   to="/login"
                 >
                   Login
